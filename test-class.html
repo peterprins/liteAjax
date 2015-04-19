@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>liteAjax Class Test</title>
+
+<script type="text/javascript" src="liteajax.class.js"></script>
+
+</head>
+<body>
+
+<h2>Test 1</h2>
+
+<div id="test1"></div>
+
+<h2>Test 2</h2>
+
+<div id="test2"></div>
+
+<script>
+
+	// load 'test.json' into 'test' div
+	var test = new liteAjax('test.json', 'test1');
+	test.load();
+
+	// callback function
+	function myCallBack(data){
+
+		// debug console
+		console.log('data: ', data );
+
+		for( element in data ){
+			// do something with the data here
+			data[element] = data[element] + ' - i added this to the data ';
+		}
+
+		// load the data into 'test2' div
+		test2.updateElement('test2', data);
+
+	}
+
+	// load 'test.json' and run myCallBack
+	var test2 = new liteAjax({
+		url: 'test.json',
+		method: 'GET',
+		type: 'application/json' } , myCallBack);
+	test2.load();
+
+</script>
+
+</body>
