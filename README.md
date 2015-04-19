@@ -70,4 +70,5 @@ var test = new liteAjax( {
 	url: 'test.json',
 	method: 'GET',
 	type: 'application/json' }, mycallback);
+test.load();
 
