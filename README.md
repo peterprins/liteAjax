@@ -6,6 +6,12 @@ The minified library is only 2k in size, is easy to use and works with all Moder
 
 ## Library Syntax
 
+```
+$ajax(string or object[, string or function])
+```
+
+### Library Usage
+
 This command loads 'test.json' into an html element with the id of 'test' and does so after the document has loaded and is ready.
 
 ```JavaScript
@@ -66,6 +72,11 @@ $ajax( { url: 'test.json',
 
 ## Class Syntax
 
+```
+liteAjax(string or object[, string or function])
+```
+
+### Class Usage
 
 This loads 'test.json' into an html element with the id of 'test' and does so after the document has loaded and is ready.
 
