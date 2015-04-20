@@ -13,13 +13,13 @@ The minified library is only 2k in size, is easy to use and works with all Moder
 
 ### Library Syntax
 
-```
+```JavaScript
 $ajax(string or object[, string or function])
 ```
 
 ### Class Syntax
 
-```
+```JavaScript
 liteAjax(string or object[, string or function])
 ```
 
@@ -27,13 +27,13 @@ liteAjax(string or object[, string or function])
 
 *string - a file path string*
 
-```
+```JavaScript
 'myfile.json'
 ```
 
 *object - a properties object*
 
-```
+```JavaScript
 var properties = {
 	url: 'filepath.json',
 	method: 'GET',
@@ -46,19 +46,19 @@ var properties = {
 
 *string - a html element id*
 
-```
+```JavaScript
 'my-html-element-id'
 ```
 
 *function - a callback function*
 
-```
+```JavaScript
 mycallback
 ```
 
 *or*
 
-```
+```JavaScript
 function(){
 	// my callback code
 }
@@ -74,7 +74,7 @@ $ajax('test.json', 'test').load();
 
 You can also load text just as easy.
 
-```
+```JavaScript
 $ajax('test.txt', 'test').load();
 ```
 
