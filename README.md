@@ -1,12 +1,11 @@
 # liteAjax Javascript Library
 
-* [Summary](#summary)
 * [Library Syntax](#library-syntax)
 * [Library Usage](#library-usage)
 * [Class Syntax](#class-syntax)
 * [Class Usage](#class-usage)
 
-### Summary
+### Description
 
 liteAjax is a fast lightweight cross-platform JavaScript library to simplify the loading of JSON with Ajax.
 
