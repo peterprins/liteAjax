@@ -17,13 +17,15 @@ The minified library is only 2k in size, is easy to use and works with all Moder
 ```
 $ajax(string or object[, string or function])
 ```
-**string or object**
+**string or object:**
 
-string - a file path string
+*string - a file path string*
 
+```
 'myfile.json'
+```
 
-object - a properties object
+*object - a properties object*
 
 ```
 var properties = {
@@ -34,13 +36,15 @@ var properties = {
 }
 ```
 
-**string or function**
+**string or function:**
 
-string - a html element id
+*string - a html element id*
 
+```
 'my-html-element-id'
+```
 
-function - a callback function
+*function - a callback function*
 
 ```
 mycallback
