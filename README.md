@@ -66,9 +66,10 @@ $ajax( { url: 'test.json',
 
 ## Class Syntax
 
-```JavaScript
+
 load 'test.json' into 'test' id.
 
+```JavaScript
 var test = new liteAjax('test.json', 'test');
 test.load();
 ```
