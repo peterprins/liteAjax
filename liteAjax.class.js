@@ -1,5 +1,5 @@
 /*!
-  * liteAjax - v1.0 
+  * liteAjax - v1.0.1
   * https://github.com/peterprins/liteajax
   *
   * Copyright 2015 Peter Prins
@@ -20,6 +20,44 @@ function liteAjax(request_obj,callback_fn){
 	this.response;
 	this.element_id;
 	this.json;
+
+	// init
+	this.init = function(){
+
+		//console.log('init');
+
+		// get url
+		if(typeof request_obj !== 'object' && typeof request_obj !== 'string'){
+
+			// init props
+			this.method = 'GET';
+			this.type = 'application/json';
+
+		}else{
+
+			// get url
+			if(typeof request_obj == 'object'){
+				this.url = request_obj['url'];
+			}else if(typeof request_obj == 'string'){
+				this.url = request_obj;
+			}
+	  
+			// get method
+			this.method = request_obj['method'] ? request_obj['method'] : 'GET';
+	  
+	  		// get type
+			if( this.method == 'POST' ){
+				this.type = request_obj['type'] ? request_obj['type'] : 'application/x-www-form-urlencoded;charset=UTF-8';
+				
+			}else{
+				this.type = request_obj['type'] ? request_obj['type'] : 'application/json';
+			}
+
+			// get data
+			this.data = request_obj['data'] ? JSON.stringify(request_obj['data']) : null;
+	 
+		}
+	}
 
 	// update element
 	this.updateElement = function(id,data){
@@ -66,45 +104,6 @@ function liteAjax(request_obj,callback_fn){
 		// do callback fn
 		callback_fn(json_obj);
 
-	}
-
-	// init
-	this.init = function(){
-
-		//console.log('init');
-
-		// get url
-		if(typeof request_obj !== 'object' && typeof request_obj !== 'string'){
-
-			// init props
-			this.method = 'GET';
-			this.type = 'application/json';
-			this.callback = null;
-
-		}else{
-
-			// get url
-			if(typeof request_obj == 'object'){
-				this.url = request_obj['url'];
-			}else if(typeof request_obj == 'string'){
-				this.url = request_obj;
-			}
-	  
-			// get method
-			this.method = request_obj['method'] ? request_obj['method'] : 'GET';
-	  
-	  		// get type
-			if( this.method == 'POST' ){
-				this.type = request_obj['type'] ? request_obj['type'] : 'application/x-www-form-urlencoded;charset=UTF-8';
-				
-			}else{
-				this.type = request_obj['type'] ? request_obj['type'] : 'application/json';
-			}
-
-			// get data
-			this.data = request_obj['data'] ? JSON.stringify(request_obj['data']) : null;
-	 
-		}
 	}
 
 	// load ajax

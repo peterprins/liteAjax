@@ -1,9 +1,10 @@
 # liteAjax
-Lite Ajax
 
-2k minified Ajax Javascript Library and Bonus Class for Modern Browsers to load JSON and/or any other file with AJAX no other library needed.
+A fast lightweight cross-platform JavaScript library to simplify the loading of JSON with Ajax.
 
-LIBRARY SYNTAX
+The liteAjax Library is only 2k minified is easy to use and works with all Modern Browsers. Ajax Javascript Library and Bonus Class for Modern Browsers load JSON and/or any other file with AJAX no other library needed.
+
+# LIBRARY SYNTAX
 
 This command loads 'test.json' into an html element with the id of 'test' and does so after the document has loaded and is ready...
 
@@ -52,7 +53,7 @@ $ajax( { url: 'test.json',
 
 }).load();
 
-CLASS SYNTAX
+# CLASS SYNTAX
 
 load 'test.json' into 'test' id
 
