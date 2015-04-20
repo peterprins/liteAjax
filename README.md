@@ -1,4 +1,5 @@
 # liteAjax Javascript Library
+**THE FAST 2KB AJAX JAVASCRIPT LIBRARY**
 
 * [Library Syntax](#library-syntax)
 * [Library Usage](#library-usage)
@@ -9,7 +10,7 @@
 
 liteAjax is a fast lightweight cross-platform JavaScript library to simplify the loading of JSON with Ajax. You could also use it to dynamically load a CSS file to parse into a JavaScript Object with the [CSStoJSObjectParser Javascript Class](https://github.com/peterprins/CSStoJSObjectParser).
 
-The minified library is only 2k in size, is easy to use and works with all Modern Browsers and requires no other library. There is also a Javascript Class version included.
+The minified library is only 2KB in size, is easy to use and works with all Modern Browsers and requires no other library. There is also a Javascript Class version included.
 
 ### Library Syntax
 
