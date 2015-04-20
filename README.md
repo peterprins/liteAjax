@@ -17,11 +17,25 @@ The minified library is only 2k in size, is easy to use and works with all Moder
 $ajax(string or object[, string or function])
 ```
 
+**methods:**
+
+```JavaScript
+$ajax().updateID( string, object or string )
+```
+description: updates the innerHTML of an html element id with the string or object (converts object with JSON.stringify to string)
+
 ### Class Syntax
 
 ```JavaScript
 liteAjax(string or object[, string or function])
 ```
+
+**methods:**
+
+```JavaScript
+updateID( string, object or string )
+```
+description: updates the innerHTML of an html element id with the string or object (converts object with JSON.stringify to string)
 
 **string or object:**
 
@@ -69,13 +83,13 @@ function(){
 This command loads 'test.json' into an html element with the id of 'test' and does so after the document has loaded and is ready.
 
 ```JavaScript
-$ajax('test.json', 'test').load();
+$ajax('test.json', 'test');
 ```
 
 You can also load text just as easy.
 
 ```JavaScript
-$ajax('test.txt', 'test').load();
+$ajax('test.txt', 'test');
 ```
 
 You can specify the properties (but you don't have to)
@@ -83,7 +97,7 @@ You can specify the properties (but you don't have to)
 ```JavaScript
 $ajax( { url: 'test.json',
 		method: 'GET',
-		type: 'application/json' }).load();
+		type: 'application/json' });
 ```
 
 You can specify a callback function if you want.
@@ -96,7 +110,7 @@ function mycallback(data){
 
 $ajax( { url: 'test.json',
 		method: 'GET',
-		type: 'application/json' }, mycallback).load();
+		type: 'application/json' }, mycallback);
 ```
 
 Or you can use an anonymous function as the callback.
@@ -106,9 +120,9 @@ $ajax( { url: 'test.txt',
 		type: 'text/plain' }, function(data){
 
 			console.log('data: ', data);
-			$ajax().updateElement('test', data);
+			$ajax().updateID('test', data);
 
-}).load();
+});
 ```
 
 And of course you can send POST data and it will set the type for you.
@@ -119,9 +133,37 @@ $ajax( { url: 'test.json',
 		data: '{ "test": { "testing": "1 2 3" } }' }, function(data){
 
 			console.log('data: ', data);
-			$ajax().updateElement('test', data);
+			$ajax().updateID('test', data);
 
-}).load();
+});
+```
+
+Create an $ajax object called test3 load 'test.json' and then run myCallBack3
+
+```JavaScript
+var myCallBack3 = function( data ){
+  
+	// test object properties
+	console.log( 'test3 object: ', test3 );
+	console.log( 'url: ' + test3.url );
+	console.log( 'method: ' + test3.method );
+	console.log( 'type: ' + test3.type );
+	console.log( 'data: ' + test3.data );
+	console.log( 'response: ' + test3.response() );
+	console.log( 'element_id: ' + test3.element_id );
+	console.log( 'callback: ', test3.callback );
+  
+    // do something with the data
+    for( element in data ){
+			data[element] = data[element] + ' >> :D << ';
+	}
+
+	// load the new data into the 'test3' div
+	$ajax().updateID( 'test3', data );
+
+}
+
+var test3 = $ajax( 'test.json', myCallBack3 );
 ```
 
 ### Class Usage

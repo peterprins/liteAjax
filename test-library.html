@@ -8,20 +8,28 @@
 <body>
 
 <h2>Test 1</h2>
-
 <div id="test1"></div>
 
 <h2>Test 2</h2>
-
 <div id="test2"></div>
 
-<script>
+<h2>Test 3</h2>
+<div id="test3"></div>
+
+<script type="text/javascript">
+
+	///////////////////////////
+	// TEST 1
 
 	// load 'test.json' into 'test' div
-	$ajax('test.json', 'test1').load();
+	$ajax( 'test.json', 'test1' );
+
+
+	///////////////////////////
+	// TEST 2
 
 	// callback function
-	function myCallBack(data){
+	function myCallBack1( data ){
 
 		// debug console
 		console.log('data: ', data );
@@ -32,14 +40,45 @@
 		}
 
 		// load the data into 'test2' div
-		$ajax().updateElement('test2', data);
+		$ajax().updateID('test2', data);
 
 	}
 
 	// load 'test.json' and run myCallBack
 	$ajax( { url: 'test.json',
 		   method: 'GET',
-		   type: 'application/json' } , myCallBack).load();
+		   type: 'application/json' } , myCallBack1);
+
+
+	///////////////////////////
+	// TEST 3
+
+	// my callback function
+	var myCallBack3 = function( data ){
+	  
+		// test object properties
+		console.log( 'test3 object: ', test3 );
+		console.log( 'url: ' + test3.url );
+		console.log( 'method: ' + test3.method );
+		console.log( 'type: ' + test3.type );
+		console.log( 'data: ' + test3.data );
+		console.log( 'response: ' + test3.response() );
+		console.log( 'element_id: ' + test3.element_id );
+		console.log( 'callback: ', test3.callback );
+	  
+	    // do something with the data
+	    for( element in data ){
+				data[element] = data[element] + ' >> :D << ';
+		}
+
+		// load the new data into the 'test3' div
+		$ajax().updateID( 'test3', data );
+
+	}
+
+	// create an $ajax object called test3
+	// load 'test.json' and then run myCallBack3
+	var test3 = $ajax( 'test.json', myCallBack3 );
 
 </script>
 

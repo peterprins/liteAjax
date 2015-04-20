@@ -1,28 +1,32 @@
 /*!
-  * liteAjax - v1.0.1
+  * liteAjax - v1.0.2
   * https://github.com/peterprins/liteajax
   *
   * Copyright 2015 Peter Prins
   * Released under the MIT license
   * http://mit-license.org/
   *
-  * Date: 2015-04-19
+  * Date: 2015-04-20
   */
 
 // this is the library
 var $ajax = function(request_obj,callback_fn){
 
-	// return
-	return {
+	// put response in arr
+	var response = [];
 
-		url : '',
-		method :'',
-		type : '',
-		data : '',
-		callback : '',
-		response : '',
-		element_id : '',
-		json : '',
+	// ajax object
+	var ajax_obj = {
+
+		url : null,
+		method : null,
+		type : null,
+		data : null,
+		callback : null,
+		response: function(){
+				return response[0];
+		},
+		element_id : null,
 
 		// init
 		init: function(){
@@ -64,13 +68,15 @@ var $ajax = function(request_obj,callback_fn){
 		},
 
 		// update element
-		updateElement: function(id,data){
+		updateID: function(id,data){
 
-			//console.log('updateElement');
+			//console.log('updateID');
 
 			// check typeof
 			if((typeof data == 'string' || typeof data == 'object')
 				&& typeof id == 'string'){
+
+				// get element
 				var element = document.getElementById(id);
 
 				try{
@@ -84,6 +90,12 @@ var $ajax = function(request_obj,callback_fn){
 				// check status
 				if(this.status == 200){
 					var element = document.getElementById(element_id);
+
+					// update response
+					response[0] = this.response;
+					//console.log('response: ', response[0]);
+
+					// update html element
 					element.innerHTML = this.response;
 				}
 
@@ -98,6 +110,10 @@ var $ajax = function(request_obj,callback_fn){
 
 			// check status
 			if(this.status == 200){
+
+				// update response
+				response[0] = this.response;
+
 				try{
 					var json_obj = JSON.parse(this.response);
 				}catch(e){
@@ -144,7 +160,7 @@ var $ajax = function(request_obj,callback_fn){
 				this.element_id = callback_fn;
 				element_id = callback_fn;
 
-				this.callback = this.updateElement;
+				this.callback = this.updateID;
 
 			}else{
 
@@ -183,5 +199,14 @@ var $ajax = function(request_obj,callback_fn){
 		}
 
 	}
+
+	// check typeof
+	if(typeof request_obj == 'object' || typeof request_obj == 'string'){
+		// load
+		ajax_obj.load();
+	}
+
+	// return
+	return ajax_obj;
 
 }
