@@ -67,14 +67,14 @@ $ajax( { url: 'test.json',
 ## Class Syntax
 
 
-load 'test.json' into 'test' id.
+This loads 'test.json' into an html element with the id of 'test' and does so after the document has loaded and is ready.
 
 ```JavaScript
 var test = new liteAjax('test.json', 'test');
 test.load();
 ```
 
-load 'test.json' and run mycallback.
+You can specify the properties and a callback function if you want.
 
 ```JavaScript
 function mycallback(){
