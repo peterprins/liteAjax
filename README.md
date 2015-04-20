@@ -6,17 +6,19 @@ The minified library is only 2k in size, is easy to use and works with all Moder
 
 ## Library Syntax
 
-This command loads 'test.json' into an html element with the id of 'test' and does so after the document has loaded and is ready...
+This command loads 'test.json' into an html element with the id of 'test' and does so after the document has loaded and is ready.
 
 ```JavaScript
 $ajax('test.json', 'test').load();
+```
 
-You can also load text just as easy...
+You can also load text just as easy.
 
+```
 $ajax('test.txt', 'test').load();
 ```
 
-You can specify the properties... (but you don't have to)
+You can specify the properties (but you don't have to)
 
 ```JavaScript
 $ajax( { url: 'test.json',
@@ -24,7 +26,7 @@ $ajax( { url: 'test.json',
 		type: 'application/json' }).load();
 ```
 
-You can specify a callback function if you want...
+You can specify a callback function if you want.
 
 ```JavaScript
 function mycallback(data){
@@ -37,7 +39,7 @@ $ajax( { url: 'test.json',
 		type: 'application/json' }, mycallback).load();
 ```
 
-Or you can use an anonymous function...
+Or you can use an anonymous function as the callback.
 
 ```JavaScript
 $ajax( { url: 'test.txt',
@@ -49,7 +51,7 @@ $ajax( { url: 'test.txt',
 }).load();
 ```
 
-And of course you can send POST data and it will set the type for you...
+And of course you can send POST data and it will set the type for you.
 
 ```JavaScript
 $ajax( { url: 'test.json',
@@ -65,13 +67,13 @@ $ajax( { url: 'test.json',
 ## Class Syntax
 
 ```JavaScript
-load 'test.json' into 'test' id
+load 'test.json' into 'test' id.
 
 var test = new liteAjax('test.json', 'test');
 test.load();
 ```
 
-load 'test.json' and run mycallback
+load 'test.json' and run mycallback.
 
 ```JavaScript
 function mycallback(){
