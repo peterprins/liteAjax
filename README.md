@@ -1,12 +1,12 @@
 # liteAjax Javascript Library
 
-* [Description](#summary)
+* [Description](#description)
 * [Library Syntax](#library-syntax)
 * [Library Usage](#library-usage)
 * [Class Syntax](#class-syntax)
 * [Class Usage](#class-usage)
 
-### Summary
+### Description
 
 liteAjax is a fast lightweight cross-platform JavaScript library to simplify the loading of JSON with Ajax.
 
@@ -16,6 +16,42 @@ The minified library is only 2k in size, is easy to use and works with all Moder
 
 ```
 $ajax(string or object[, string or function])
+```
+**string or object**
+
+string - a file path string
+
+'myfile.json'
+
+object - a properties object
+
+```
+var properties = {
+	url: 'filepath.json',
+	method: 'GET',
+	type: 'application/json',
+	data: '{"test":"this is a test"}'
+}
+```
+
+**string or function**
+
+string - a html element id
+
+'my-html-element-id'
+
+function - a callback function
+
+```
+mycallback
+```
+
+or
+
+```
+function(){
+	// my callback code
+}
 ```
 
 ### Library Usage
