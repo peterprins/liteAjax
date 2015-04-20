@@ -1,27 +1,32 @@
-# liteAjax
+# liteAjax Javascript Library
 
-A fast lightweight cross-platform JavaScript library to simplify the loading of JSON with Ajax.
+liteAjax is a fast lightweight cross-platform JavaScript library to simplify the loading of JSON with Ajax.
 
-The liteAjax Library is only 2k minified is easy to use and works with all Modern Browsers. Ajax Javascript Library and Bonus Class for Modern Browsers load JSON and/or any other file with AJAX no other library needed.
+The minified library is only 2k in size, is easy to use and works with all Modern Browsers and requires no other library. There is also a Javascript Class version included.
 
-# LIBRARY SYNTAX
+## Library Syntax
 
 This command loads 'test.json' into an html element with the id of 'test' and does so after the document has loaded and is ready...
 
+```JavaScript
 $ajax('test.json', 'test').load();
 
 You can also load text just as easy...
 
 $ajax('test.txt', 'test').load();
+```
 
 You can specify the properties... (but you don't have to)
 
+```JavaScript
 $ajax( { url: 'test.json',
 		method: 'GET',
 		type: 'application/json' }).load();
+```
 
 You can specify a callback function if you want...
 
+```JavaScript
 function mycallback(data){
 	console.log('data: ', data);
 	document.writeln('data: ' + data);
@@ -30,10 +35,11 @@ function mycallback(data){
 $ajax( { url: 'test.json',
 		method: 'GET',
 		type: 'application/json' }, mycallback).load();
-
+```
 
 Or you can use an anonymous function...
 
+```JavaScript
 $ajax( { url: 'test.txt',
 		type: 'text/plain' }, function(data){
 
@@ -41,9 +47,11 @@ $ajax( { url: 'test.txt',
 			$ajax().updateElement('test', data);
 
 }).load();
+```
 
 And of course you can send POST data and it will set the type for you...
 
+```JavaScript
 $ajax( { url: 'test.json',
 		method: 'POST',
 		data: '{ "test": { "testing": "1 2 3" } }' }, function(data){
@@ -52,16 +60,20 @@ $ajax( { url: 'test.json',
 			$ajax().updateElement('test', data);
 
 }).load();
+```
 
-# CLASS SYNTAX
+## Class Syntax
 
+```JavaScript
 load 'test.json' into 'test' id
 
 var test = new liteAjax('test.json', 'test');
 test.load();
+```
 
 load 'test.json' and run mycallback
 
+```JavaScript
 function mycallback(){
 	console.log('data: ', data);
 	test.updateElement('test', data);
@@ -72,4 +84,5 @@ var test = new liteAjax( {
 	method: 'GET',
 	type: 'application/json' }, mycallback);
 test.load();
+```
 
